@@ -10,7 +10,7 @@ import torch
 from PIL import Image, ImageOps
 from diffusers import Flux2KleinPipeline
 
-MODEL_ID = os.getenv("MODEL_ID", "black-forest-labs/FLUX.2-klein-base-4B")
+MODEL_ID = os.getenv("MODEL_ID", "black-forest-labs/FLUX.2-klein-4B")
 PROMPTS_PATH = Path(os.getenv("PROMPTS_PATH", "/app/prompts.json"))
 MAX_INPUT_BYTES = int(os.getenv("MAX_INPUT_BYTES", str(20 * 1024 * 1024)))
 pipe = None
@@ -93,7 +93,7 @@ def handler(job):
         if seed is not None:
             generator = torch.Generator(device="cuda").manual_seed(int(seed))
         model = load_model()
-        result = model(image=image, prompt=prompt, generator=generator).images[0]
+        result = model(image=image, prompt=prompt, generator=generator, guidance_scale=float(data.get('guidance_scale', 1.0)), num_inference_steps=int(data.get('num_inference_steps', 4))).images[0]
         output = io.BytesIO()
         result.save(output, format="PNG")
         stored = store_result(output.getvalue(), job_id)
