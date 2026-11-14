@@ -1,10 +1,10 @@
 # AgentsCrafts — FLUX.2 Klein Serverless Worker
 
-RunPod Queue Serverless worker for image editing with FLUX.2 Klein Base 4B.
+RunPod Queue Serverless worker for image editing with FLUX.2 Klein 4B.
 
 ## Status
 
-Implementation draft; not yet build-tested on a RunPod GPU. Do not deploy to production until the acceptance checks below pass.
+Implementation draft; source and prompt JSON have been inspected, but Docker build and GPU inference have not yet been verified. Do not deploy to production until the acceptance checks below pass.
 
 ## Model
 
