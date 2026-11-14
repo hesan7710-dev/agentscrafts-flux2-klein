@@ -8,7 +8,7 @@ Implementation draft; not yet build-tested on a RunPod GPU. Do not deploy to pro
 
 ## Model
 
-Default: `black-forest-labs/FLUX.2-klein-base-4B`. Override with `MODEL_ID` only after verifying that the selected model exposes the Diffusers `Flux2KleinPipeline` image-edit interface. Accept the Hugging Face model terms and provide `HF_TOKEN` as a RunPod secret if required by the model repository.
+Default: `black-forest-labs/FLUX.2-klein-4B`. Override with `MODEL_ID` only after verifying that the selected model exposes the Diffusers `Flux2KleinPipeline` image-edit interface. Accept the Hugging Face model terms and provide `HF_TOKEN` as a RunPod secret if required by the model repository.
 
 ## Input contract
 
